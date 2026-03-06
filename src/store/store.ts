@@ -1,8 +1,11 @@
-import { counterSlice } from './../../node_modules/@reduxjs/toolkit/src/listenerMiddleware/tests/listenerMiddleware.withTypes.test-d';
+import { counterSlice } from './counter-slice';
 import { configureStore } from '@reduxjs/toolkit';
 
-configureStore({
+export const store = configureStore({
 	reducer: {
 		counter: counterSlice.reducer,
 	},
 });
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
